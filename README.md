@@ -19,7 +19,7 @@ Suk Jin Mun, [mun.s@northeastern.edu](mailto:mun.s@northeastern.edu), GitHub [Su
 
 ## Project objective
 
-This is my personal homepage. I am an M.S. Data Science student at Northeastern University, and I use data science and machine learning for materials research. The site shows who I am, my research and publications, and how to reach me. It is written for professors, recruiters, and classmates.
+I am an M.S. Data Science student at Northeastern University, and I use data science and machine learning for materials research. The site shows who I am, my research and publications, and how to reach me.
 
 ## Screenshot
 
