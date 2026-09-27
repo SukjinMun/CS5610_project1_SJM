@@ -31,7 +31,7 @@ I am an M.S. Data Science student at Northeastern University, and I use data sci
 \# research.html lists my interests, research positions, and publications, and it holds the Bragg peak explorer.\
 \# lab.html runs an interactive 2D Ising model, and it is the page made with GenAI as described below.
 
-All pages share the navbar, the footer, and css/style.css. js/main.js marks the current page and sets the footer year.
+All pages share the navbar, the footer, and css/style.css. js/main.js marks the current page, sets the footer year, and shares the palette colors and canvas sizing with both demos.
 
 ## Original component
 
@@ -63,7 +63,7 @@ CS5610_project1_SJM/
 ├── research.html       Research and the Bragg peak explorer
 ├── lab.html            Lab and the 2D Ising model
 ├── css/style.css       Styles on top of Bootstrap
-├── js/main.js          Active navbar link and footer year
+├── js/main.js          Navbar link, footer year, shared canvas helpers
 ├── js/bragg.js         Bragg peak explorer
 ├── js/ising.js         Ising model
 ├── images/             Avatar, favicon, screenshot, thumbnail
@@ -90,7 +90,7 @@ AI made the Lab page (lab.html, js/ising.js, and the Lab part of css/style.css) 
 9. Add canvas labels and keyboard focus.
 10. Fix the ESLint and W3C errors.
 
-The same assistant also helped build and review my other two pages, the design document, and this README, and it later shortened the Lab page text.
+The same assistant also helped build and review my other two pages, the design document, and this README, and it later shortened the Lab page text and tidied the Lab code.
 
 ## License
 
