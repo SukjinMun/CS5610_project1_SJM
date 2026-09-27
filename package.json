@@ -1,0 +1,28 @@
+{
+  "name": "cs5610-project1-sjm",
+  "version": "1.0.0",
+  "description": "Personal homepage of Suk Jin Mun.",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "http-server . -p 8080 -o",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "author": "Suk Jin Mun",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "5.3.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@html-eslint/eslint-plugin": "^0.32.0",
+    "@html-eslint/parser": "^0.32.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-html": "^8.1.2",
+    "globals": "^15.14.0",
+    "http-server": "^14.1.1",
+    "prettier": "^3.4.2"
+  }
+}
