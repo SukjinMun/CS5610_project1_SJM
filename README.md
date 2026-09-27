@@ -4,7 +4,7 @@ A three page static homepage built with HTML5, CSS3, ES6 modules, and Bootstrap 
 
 ## Links
 
-\# Live site: added when the repository is deployed with GitHub Pages\
+\# Live site: [https://sukjinmun.github.io/CS5610_project1_SJM/](https://sukjinmun.github.io/CS5610_project1_SJM/)\
 \# Design document: [docs/design_document.pdf](docs/design_document.pdf)\
 \# Video: added after recording\
 \# Slides: added after upload
