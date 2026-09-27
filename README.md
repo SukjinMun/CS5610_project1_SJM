@@ -27,15 +27,15 @@ I am an M.S. Data Science student at Northeastern University, and I use data sci
 
 ## Pages
 
-\# index.html, Home: a short intro, highlights, education, and contact links.\
-\# research.html, Research: my interests, research positions, publications, and the Bragg peak explorer.\
-\# lab.html, Lab: an interactive 2D Ising model, made with GenAI as described below.
+\# index.html is the home page, with a short introduction, highlights, education, and contact links.\
+\# research.html lists my interests, research positions, and publications, and it holds the Bragg peak explorer.\
+\# lab.html runs an interactive 2D Ising model, and it is the page made with GenAI as described below.
 
 All pages share the navbar, the footer, and css/style.css. js/main.js marks the current page and sets the footer year.
 
 ## Original component
 
-The Bragg peak explorer on research.html is written from scratch in js/bragg.js. You pick a crystal type, a size, and a light source, and it draws where the peaks fall on a canvas and lists them in a table.
+The Bragg peak explorer on research.html shows the angles at which a crystal scatters light into peaks. I wrote it from scratch in js/bragg.js. You pick a crystal type, a size, and a light source, and it draws the peaks on a canvas and lists them in a table.
 
 ## Instructions to build
 

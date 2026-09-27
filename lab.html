@@ -67,7 +67,9 @@
       <section class="py-5">
         <div class="container">
           <h1 class="display-5">Lab</h1>
-          <p class="lead prose">A small magnet simulation you can play with.</p>
+          <p class="lead prose">
+            This page runs a small simulation of a magnet that you can control.
+          </p>
         </div>
       </section>
 
@@ -76,10 +78,13 @@
         <div class="container">
           <h2 class="mb-3">2D Ising model</h2>
           <p class="prose mb-4">
-            Each square is a tiny magnet that points up or down. Raise the
-            temperature and watch the ordered patches break into noise. Teal
-            squares point up and white squares point down. Magnetization runs
-            from −1 (all down) to +1 (all up).
+            The 2D Ising model is the simplest model of a magnet. It is a grid
+            of tiny magnets, called spins, and each spin points up, shown in
+            teal, or down, shown in white. Neighboring spins prefer to point the
+            same way, while heat flips them at random. At low temperature the
+            spins line up into large patches, and above about 2.27 the patches
+            break up into noise. Magnetization is the average spin, which runs
+            from −1 when all spins point down to +1 when all point up.
           </p>
           <div class="card">
             <div class="card-body">
@@ -124,8 +129,9 @@
                       class="col-12 order-md-last prose small mb-0"
                       id="ising-tc-note"
                     >
-                      T<sub>c</sub> ≈ 2.269 marks where order breaks down on a
-                      very large grid.
+                      The mark T<sub>c</sub> at about 2.269 is the critical
+                      temperature, where the order breaks down on a very large
+                      grid.
                     </p>
                     <div class="col-md-4">
                       <label class="form-label" for="ising-size"
