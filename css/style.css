@@ -4,11 +4,10 @@
   --band: #f6f7f9;
   --accent: #0f6e6e;
   --accent-dark: #0b5353;
+  --accent-rgb: 15, 110, 110;
+  --accent-ring: 0 0 0 0.25rem rgba(var(--accent-rgb), 0.25);
   --bs-body-color: var(--ink);
-  --bs-body-color-rgb: 26, 26, 26;
-  --bs-link-color: var(--accent);
-  --bs-link-color-rgb: 15, 110, 110;
-  --bs-link-hover-color: var(--accent-dark);
+  --bs-link-color-rgb: var(--accent-rgb);
   --bs-link-hover-color-rgb: 11, 83, 83;
 }
 
@@ -21,7 +20,7 @@
   max-width: 70ch;
 }
 
-main ul {
+.hash-list {
   list-style-type: "# ";
 }
 
@@ -29,41 +28,25 @@ main ul {
   --bs-navbar-active-color: var(--accent);
 }
 
-.navbar .nav-link:focus-visible {
-  outline: 0.125rem solid var(--accent);
-  outline-offset: 0.125rem;
-  box-shadow: none;
-}
-
 /* Experience */
 .xp-card {
   border-left: 0.25rem solid var(--accent);
 }
 
-/* Bragg peak explorer */
-.bragg-canvas {
-  display: block;
-  width: 100%;
-  height: 18rem;
-  color: var(--accent);
-}
-
-.bragg-table-wrap {
-  max-height: 24rem;
-  overflow-y: auto;
-}
-
-.bragg-table thead th {
-  position: sticky;
-  top: 0;
-}
-
+/* Focus */
+.nav-link:focus-visible,
 .bragg-form :focus-visible,
-.bragg-table-wrap:focus-visible {
+.bragg-table-wrap:focus-visible,
+.ising-form :focus-visible {
   outline: 0.125rem solid var(--accent);
   outline-offset: 0.125rem;
 }
 
+.nav-link:focus-visible {
+  box-shadow: none;
+}
+
+/* Form controls */
 .form-range::-webkit-slider-thumb {
   background-color: var(--accent);
 }
@@ -80,10 +63,36 @@ main ul {
   background-color: var(--accent-dark);
 }
 
+.form-select:focus {
+  border-color: var(--accent);
+  box-shadow: var(--accent-ring);
+}
+
+.form-range:focus::-webkit-slider-thumb {
+  box-shadow:
+    0 0 0 1px #fff,
+    var(--accent-ring);
+}
+
+.form-range:focus::-moz-range-thumb {
+  box-shadow:
+    0 0 0 1px #fff,
+    var(--accent-ring);
+}
+
+/* Bragg peak explorer */
+.bragg-canvas {
+  height: 18rem;
+}
+
+.bragg-table-wrap {
+  max-height: 24rem;
+  overflow-y: auto;
+}
+
 /* Lab */
-.ising-scale {
-  position: relative;
-  padding-bottom: 1.5rem;
+.ising-canvas {
+  image-rendering: pixelated;
 }
 
 .ising-tc {
@@ -108,13 +117,7 @@ main ul {
 }
 
 .ising-plot {
-  display: block;
-  width: 100%;
   height: 10rem;
-}
-
-.ising-readouts dt {
-  font-weight: 400;
 }
 
 .ising-form .btn {
@@ -125,7 +128,7 @@ main ul {
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: var(--accent-dark);
   --bs-btn-active-border-color: var(--accent-dark);
-  --bs-btn-focus-shadow-rgb: 15, 110, 110;
+  --bs-btn-focus-shadow-rgb: var(--accent-rgb);
 }
 
 .ising-play {
@@ -135,26 +138,4 @@ main ul {
 
 .ising-reset {
   --bs-btn-color: var(--accent);
-}
-
-.ising-form .form-select:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 0.25rem rgb(15 110 110 / 25%);
-}
-
-.ising-form .form-range:focus::-webkit-slider-thumb {
-  box-shadow:
-    0 0 0 1px #fff,
-    0 0 0 0.25rem rgb(15 110 110 / 25%);
-}
-
-.ising-form .form-range:focus::-moz-range-thumb {
-  box-shadow:
-    0 0 0 1px #fff,
-    0 0 0 0.25rem rgb(15 110 110 / 25%);
-}
-
-.ising-form :focus-visible {
-  outline: 0.125rem solid var(--accent);
-  outline-offset: 0.125rem;
 }

@@ -1,3 +1,5 @@
+import { accent, fitCanvas, ink } from "./main.js";
+
 // Ising model
 const SWEEPS = 4;
 const HISTORY = 200;
@@ -9,27 +11,32 @@ const size = form.querySelector(".ising-size");
 const play = form.querySelector(".ising-play");
 const reset = form.querySelector(".ising-reset");
 const canvas = document.querySelector(".ising-canvas");
+const grid = canvas.getContext("2d");
+const plot = document.querySelector(".ising-plot");
 const magnetization = document.querySelector(".ising-m");
 const energy = document.querySelector(".ising-e");
-const plot = document.querySelector(".ising-plot");
 const status = document.querySelector(".ising-status");
 const historyRows = document.querySelector(".ising-history-rows");
-const buffer = document.createElement("canvas");
+const details = historyRows.closest("details");
 
 // Colors
-const accent = getComputedStyle(document.documentElement)
-  .getPropertyValue("--accent")
-  .trim();
-const UP = [1, 3, 5].map((i) => parseInt(accent.slice(i, i + 2), 16));
-const DOWN = [255, 255, 255];
+const toPixel = (hex) => {
+  const rgb = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  return new Uint32Array(Uint8ClampedArray.of(...rgb, 255).buffer)[0];
+};
+const UP = toPixel(accent);
+const DOWN = toPixel("#ffffff");
 
+// State
 let n = 0;
-let spins = new Int8Array(0);
+let spins = null;
 let image = null;
+let pixels = null;
 let accept = {};
+let history = [];
+let chart = fitCanvas(plot);
 let running = false;
 let frameId = 0;
-let history = [];
 let spoken = 0;
 
 // Lattice
@@ -38,12 +45,12 @@ function init() {
   spins = Int8Array.from({ length: n * n }, () =>
     Math.random() < 0.5 ? 1 : -1,
   );
+  canvas.width = n;
+  canvas.height = n;
   image = new ImageData(n, n);
-  buffer.width = n;
-  buffer.height = n;
-  draw();
-  history = [measure()];
-  drawPlot();
+  pixels = new Uint32Array(image.data.buffer);
+  history = [];
+  render();
   announce();
 }
 
@@ -51,71 +58,50 @@ function setTemperature() {
   const t = Number(temp.value);
   tempValue.textContent = t.toFixed(2);
   accept = { 4: Math.exp(-4 / t), 8: Math.exp(-8 / t) };
+  announce();
 }
 
 // Metropolis
 function sweep() {
-  for (let k = 0; k < n * n; k++) {
-    const x = Math.floor(Math.random() * n);
-    const y = Math.floor(Math.random() * n);
-    const i = y * n + x;
+  const count = spins.length;
+  for (let step = 0; step < SWEEPS * count; step += 1) {
+    const i = Math.floor(Math.random() * count);
+    const x = i % n;
+    const rowStart = i - x;
     const sum =
-      spins[y * n + ((x + 1) % n)] +
-      spins[y * n + ((x + n - 1) % n)] +
-      spins[((y + 1) % n) * n + x] +
-      spins[((y + n - 1) % n) * n + x];
+      spins[rowStart + ((x + 1) % n)] +
+      spins[rowStart + ((x + n - 1) % n)] +
+      spins[(i + n) % count] +
+      spins[(i + count - n) % count];
     const dE = 2 * spins[i] * sum;
-    if (dE <= 0 || Math.random() < accept[dE]) spins[i] = -spins[i];
-  }
-}
-
-function measure() {
-  let m = 0;
-  let e = 0;
-  for (let y = 0; y < n; y++) {
-    for (let x = 0; x < n; x++) {
-      const s = spins[y * n + x];
-      m += s;
-      e -= s * (spins[y * n + ((x + 1) % n)] + spins[((y + 1) % n) * n + x]);
+    if (dE <= 0 || Math.random() < accept[dE]) {
+      spins[i] = -spins[i];
     }
   }
-  magnetization.textContent = (m / (n * n)).toFixed(2);
-  energy.textContent = (e / (n * n)).toFixed(2);
-  return m / (n * n);
 }
 
-// Canvas
+// Canvas and observables
 function draw() {
-  spins.forEach((s, i) => {
-    image.data.set(s > 0 ? UP : DOWN, i * 4);
-    image.data[i * 4 + 3] = 255;
-  });
-  buffer.getContext("2d").putImageData(image, 0, 0);
-  const ratio = window.devicePixelRatio || 1;
-  canvas.width = canvas.clientWidth * ratio;
-  canvas.height = canvas.clientHeight * ratio;
-  const ctx = canvas.getContext("2d");
-  ctx.imageSmoothingEnabled = false;
-  ctx.drawImage(buffer, 0, 0, canvas.width, canvas.height);
+  const count = spins.length;
+  let m = 0;
+  let e = 0;
+  for (let i = 0; i < count; i += 1) {
+    const x = i % n;
+    pixels[i] = spins[i] > 0 ? UP : DOWN;
+    m += spins[i];
+    e -= spins[i] * (spins[i - x + ((x + 1) % n)] + spins[(i + n) % count]);
+  }
+  grid.putImageData(image, 0, 0);
+  return { m: m / count, e: e / count };
 }
 
 // Plot
 function drawPlot() {
-  const ratio = window.devicePixelRatio || 1;
-  const width = plot.clientWidth;
-  const height = plot.clientHeight;
-  plot.width = width * ratio;
-  plot.height = height * ratio;
-  const ctx = plot.getContext("2d");
-  ctx.scale(ratio, ratio);
-  const { fontFamily } = getComputedStyle(plot);
-  const ink = getComputedStyle(document.body).color;
+  const { ctx, width, height } = chart;
   const left = 24;
-  const top = 8;
-  const bottom = height - 8;
-  const y = (m) => top + ((1 - m) / 2) * (bottom - top);
+  const y = (m) => 8 + ((1 - m) / 2) * (height - 16);
 
-  ctx.font = `13px ${fontFamily}`;
+  ctx.clearRect(0, 0, width, height);
   ctx.textAlign = "right";
   ctx.textBaseline = "middle";
   ctx.fillStyle = ink;
@@ -134,14 +120,17 @@ function drawPlot() {
   ctx.strokeStyle = accent;
   ctx.lineWidth = 2;
   ctx.beginPath();
-  history.forEach((m, i) =>
-    ctx.lineTo(left + (i / (HISTORY - 1)) * (width - left), y(m)),
-  );
+  history.forEach((m, i) => {
+    ctx.lineTo(left + (i / (HISTORY - 1)) * (width - left), y(m));
+  });
   ctx.stroke();
 }
 
 // History table
 function listHistory() {
+  if (!details.open) {
+    return;
+  }
   historyRows.replaceChildren();
   history.forEach((m, i) => {
     const row = historyRows.insertRow();
@@ -158,31 +147,45 @@ function announce() {
 }
 
 // Loop
-function frame() {
-  for (let k = 0; k < SWEEPS; k++) sweep();
-  draw();
-  history.push(measure());
-  if (history.length > HISTORY) history.shift();
+function render() {
+  const { m, e } = draw();
+  magnetization.textContent = m.toFixed(2);
+  energy.textContent = e.toFixed(2);
+  history.push(m);
+  if (history.length > HISTORY) {
+    history.shift();
+  }
   drawPlot();
-  if (performance.now() - spoken > 5000) announce();
+}
+
+function frame() {
+  sweep();
+  render();
+  if (performance.now() - spoken > 5000) {
+    announce();
+  }
   frameId = requestAnimationFrame(frame);
 }
 
+// Controls
 play.addEventListener("click", () => {
   running = !running;
   play.textContent = running ? "Pause" : "Play";
-  if (running) frameId = requestAnimationFrame(frame);
-  else cancelAnimationFrame(frameId);
+  if (running) {
+    frameId = requestAnimationFrame(frame);
+  } else {
+    cancelAnimationFrame(frameId);
+  }
   announce();
 });
 reset.addEventListener("click", init);
 size.addEventListener("change", init);
 temp.addEventListener("input", setTemperature);
-historyRows.closest("details").addEventListener("toggle", listHistory);
+details.addEventListener("toggle", listHistory);
 window.addEventListener("resize", () => {
-  draw();
+  chart = fitCanvas(plot);
   drawPlot();
 });
 
-setTemperature();
 init();
+setTemperature();

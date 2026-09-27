@@ -17,10 +17,17 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./css/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@popperjs/core": "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/+esm"
+        }
+      }
+    </script>
     <script
       type="module"
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.esm.min.js"
+      integrity="sha384-xBDFeCIxnhwUVfUb/XJFZZE66HuOkWrQ1ob02jFh5jhEJR9Kxx1KBEv3WvMColVg"
       crossorigin="anonymous"
     ></script>
     <script type="module" src="./js/main.js"></script>
@@ -109,7 +116,7 @@
                           >2.25</output
                         >
                       </div>
-                      <div class="ising-scale">
+                      <div class="position-relative pb-4">
                         <input
                           class="form-range ising-temp"
                           id="ising-temp"
@@ -152,19 +159,19 @@
                   </div>
                 </form>
                 <div class="col-md-6 order-md-3">
-                  <dl class="ising-readouts mb-0">
-                    <dt>Magnetization per spin</dt>
+                  <dl class="mb-0">
+                    <dt class="fw-normal">Magnetization per spin</dt>
                     <dd>
                       <output class="ising-m" aria-live="off">0.00</output>
                     </dd>
-                    <dt>Energy per spin</dt>
+                    <dt class="fw-normal">Energy per spin</dt>
                     <dd>
                       <output class="ising-e" aria-live="off">0.00</output>
                     </dd>
-                    <dt>Magnetization, last 200 frames</dt>
+                    <dt class="fw-normal">Magnetization, last 200 frames</dt>
                     <dd class="mb-0">
                       <canvas
-                        class="ising-plot"
+                        class="ising-plot d-block w-100"
                         role="img"
                         aria-label="Line plot of the magnetization from -1 to 1 over the last 200 frames"
                       ></canvas>
