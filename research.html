@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Research experience, publications, and a Bragg peak explorer by Suk Jin Mun."
+    />
+    <meta name="author" content="Suk Jin Mun" />
+    <title>Research | Suk Jin Mun</title>
+    <link rel="icon" href="./images/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/bragg.js"></script>
+  </head>
+  <body>
+    <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
+
+    <!-- Header -->
+    <header>
+      <nav class="navbar navbar-expand-md bg-white border-bottom">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">Suk Jin Mun</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#site-nav"
+            aria-controls="site-nav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="site-nav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./research.html">Research</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./lab.html">Lab</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Interests -->
+      <section class="py-5">
+        <div class="container">
+          <h1 class="display-5">Research</h1>
+          <p class="lead prose">
+            I build machine learning methods for materials discovery and
+            characterization, drawing on earlier work in X-ray and neutron
+            diffraction.
+          </p>
+          <h2 class="h4 mt-4">Research interests</h2>
+          <ul class="prose">
+            <li>
+              Machine learning methods that accelerate materials discovery and
+              characterization
+            </li>
+            <li>Generative models for atomistic structures</li>
+            <li>
+              Machine-learned interatomic potentials and DFT screening of 2D
+              materials
+            </li>
+            <li>Powder XRD and neutron diffraction analysis</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="band py-5">
+        <div class="container">
+          <h2 class="mb-4">Experience</h2>
+          <ol class="list-unstyled mb-0">
+            <li class="card xp-card mb-3">
+              <div class="card-body">
+                <h3 class="h5 card-title">D2R2 Lab, Northeastern University</h3>
+                <p class="card-subtitle mb-2 text-body-secondary">
+                  Research Assistant with Prof. Peter Schindler, Sep 2025 to
+                  present
+                </p>
+                <ul class="mb-0">
+                  <li>
+                    I use equivariant graph neural networks to predict work
+                    functions of 2D materials.
+                  </li>
+                  <li>
+                    I screen switchable sliding ferroelectrics with DFT and
+                    machine learning.
+                  </li>
+                  <li>
+                    My M.S. thesis builds a generative model for adsorbate
+                    structures. A learned confidence score screens the
+                    structures before relaxation with machine-learned
+                    interatomic potentials. Prof. Robin Walters of the Geometric
+                    Learning Lab co-advises it.
+                  </li>
+                  <li>
+                    I study scaling laws of autoregressive graph generators.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="card xp-card mb-3">
+              <div class="card-body">
+                <h3 class="h5 card-title">
+                  Center for Van der Waals Quantum Solids, Institute for Basic
+                  Science, Pohang
+                </h3>
+                <p class="card-subtitle mb-2 text-body-secondary">
+                  Research Assistant in Dr. Sungkyun Choi's group, June 2024 to
+                  July 2025
+                </p>
+                <ul class="mb-0">
+                  <li>
+                    I developed
+                    <a href="https://github.com/DataForgeSci/RAPID">RAPID</a>, a
+                    CNN-based program that automates Rietveld refinement of
+                    powder XRD data (J. Appl. Cryst. 2026).
+                  </li>
+                  <li>
+                    I built a MATLAB pipeline to constrain the exchange
+                    couplings K, J, and Γ of a honeycomb-based iridate. It ranks
+                    SpinW spin-wave simulations against powder inelastic neutron
+                    scattering data. A manuscript is in preparation.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="card xp-card mb-3">
+              <div class="card-body">
+                <h3 class="h5 card-title">
+                  Center for Integrated Nanostructure Physics, Institute for
+                  Basic Science, Suwon
+                </h3>
+                <p class="card-subtitle mb-2 text-body-secondary">
+                  Research Assistant in Dr. Sungkyun Choi's group, Feb 2023 to
+                  May 2023
+                </p>
+                <ul class="mb-0">
+                  <li>
+                    I wrote Python tools for crystal electric field computations
+                    and SEM image analysis.
+                  </li>
+                  <li>
+                    I analyzed crystal and magnetic structures from neutron
+                    diffraction, including magnetic space group determination
+                    and twin domain analysis (Phys. Rev. Research 2025).
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="card xp-card mb-3">
+              <div class="card-body">
+                <h3 class="h5 card-title">
+                  Thin Film Technology Group, Max Planck Institute for Solid
+                  State Research, Stuttgart
+                </h3>
+                <p class="card-subtitle mb-2 text-body-secondary">
+                  Research Assistant with Dr. Gennady Logvenov and Dr. Gideok
+                  Kim, June to Aug 2019 and Jan to Feb 2020
+                </p>
+                <ul class="mb-0">
+                  <li>
+                    I measured magnetotransport and the Hall effect of oxide
+                    heterostructures with a PPMS.
+                  </li>
+                  <li>
+                    I also worked with AC susceptibility, X-ray diffraction, and
+                    Raman data.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="card xp-card mb-3">
+              <div class="card-body">
+                <h3 class="h5 card-title">Yonsei University</h3>
+                <p class="card-subtitle mb-2 text-body-secondary">
+                  Research Intern in Prof. Aeree Chung's group, Sep 2018 to Jan
+                  2019
+                </p>
+                <ul class="mb-0">
+                  <li>
+                    I studied HI-rich galaxy environments with ALMA spectral
+                    data.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="card xp-card">
+              <div class="card-body">
+                <h3 class="h5 card-title">Seoul National University</h3>
+                <p class="card-subtitle mb-2 text-body-secondary">
+                  Research Intern in Prof. Sascha Trippe's group, Mar to May
+                  2018
+                </p>
+                <ul class="mb-0">
+                  <li>I worked with KaVA VLBI data using AIPS and DIFMAP.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section id="publications" class="py-5">
+        <div class="container">
+          <h2 class="mb-4">Publications</h2>
+          <ol class="prose">
+            <li class="mb-3">
+              <strong>S. J. Mun</strong>, Y. Nam, and S. Choi, "Automation of
+              Rietveld refinement through machine learning,"
+              <cite>Journal of Applied Crystallography</cite> 59, 564–577
+              (2026).
+              <a href="https://doi.org/10.1107/S1600576726001494">DOI</a> ·
+              <a href="https://github.com/DataForgeSci/RAPID">Code</a>
+            </li>
+            <li class="mb-3">
+              R. Goel, K. Son, M. J. Gutmann, D. G. Oh, K. Kumar, A. Ali,
+              <strong>S. J. Mun</strong>, D. Bhosale, G. Kim, N. Lee, Y. J.
+              Choi, S.-W. Cheong, V. Kiryukhin, and S. Choi, "Ferromagnetic
+              moment in the magnetoelectric antiferromagnet
+              Co<sub>4</sub>Ta<sub>2</sub>O<sub>9</sub>: Evidence of the P1
+              magnetic space group," <cite>Physical Review Research</cite> 7,
+              043196 (2025).
+              <a href="https://scholar.google.com/citations?user=4GZ-Vby3bxQC"
+                >Google Scholar</a
+              >
+            </li>
+            <li>Manuscript on a honeycomb-based iridate, in preparation.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Bragg peak explorer -->
+      <section id="bragg" class="band py-5">
+        <div class="container">
+          <h2 class="mb-3">Bragg peak explorer</h2>
+          <div class="prose mb-4">
+            <p>
+              A crystal diffracts X-rays only at certain angles, set by the
+              spacing of its atomic planes. Choose a cubic lattice, a lattice
+              constant a, and an X-ray source to see where the peaks of a powder
+              pattern fall.
+            </p>
+            <p>
+              Each peak follows Bragg's law,
+              <span class="text-nowrap">λ = 2d sin θ</span>, with
+              <span class="text-nowrap">d = a / √(h² + k² + l²)</span> for the
+              planes hkl. Body centered lattices keep only reflections with h +
+              k + l even. Face centered lattices keep those with h, k, l all
+              even or all odd.
+            </p>
+            <p>
+              The sticks mark every peak between 10° and 90° in 2θ, and the
+              first ones carry their hkl labels. All sticks have the same height
+              because the explorer computes positions, not intensities. The
+              default, face centered cubic with a = 4.05 Å, matches aluminum.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <form class="bragg-form row g-3">
+                <div class="col-md-4">
+                  <label class="form-label" for="bragg-lattice">Lattice</label>
+                  <select class="form-select bragg-lattice" id="bragg-lattice">
+                    <option value="sc">Simple cubic</option>
+                    <option value="bcc">Body centered cubic</option>
+                    <option value="fcc" selected>Face centered cubic</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="bragg-a"
+                      >Lattice constant a</label
+                    >
+                    <output class="bragg-a-value" for="bragg-a">4.05 Å</output>
+                  </div>
+                  <input
+                    class="form-range bragg-a"
+                    id="bragg-a"
+                    type="range"
+                    min="3"
+                    max="6"
+                    step="0.01"
+                    value="4.05"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="bragg-source"
+                    >X-ray source</label
+                  >
+                  <select class="form-select bragg-source" id="bragg-source">
+                    <option value="1.5406" selected>Cu Kα, λ = 1.5406 Å</option>
+                    <option value="0.7107">Mo Kα, λ = 0.7107 Å</option>
+                  </select>
+                </div>
+              </form>
+              <p class="bragg-summary mt-4 mb-2" aria-live="polite"></p>
+              <canvas
+                class="bragg-canvas"
+                role="img"
+                aria-label="Stick pattern of the peaks listed in the table below"
+              ></canvas>
+            </div>
+          </div>
+          <div
+            class="bragg-table-wrap mt-4"
+            tabindex="0"
+            role="region"
+            aria-label="Peak positions; scroll for more rows"
+          >
+            <table class="table table-sm caption-top bragg-table">
+              <caption>
+                Peak positions
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">hkl</th>
+                  <th scope="col">h² + k² + l²</th>
+                  <th scope="col">d (Å)</th>
+                  <th scope="col">2θ (°)</th>
+                </tr>
+              </thead>
+              <tbody class="bragg-rows"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-top py-4">
+      <div
+        class="container d-flex flex-column flex-sm-row justify-content-between gap-2"
+      >
+        <p class="mb-0">© <span class="footer-year">2026</span> Suk Jin Mun</p>
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item">
+            <a href="mailto:mun.s@northeastern.edu">Email</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://github.com/SukjinMun">GitHub</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://scholar.google.com/citations?user=4GZ-Vby3bxQC"
+              >Google Scholar</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
