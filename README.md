@@ -7,7 +7,7 @@ A three page static homepage built with HTML5, CSS3, ES6 modules, and Bootstrap 
 \# Live site: [https://sukjinmun.github.io/CS5610_project1_SJM/](https://sukjinmun.github.io/CS5610_project1_SJM/)\
 \# Design document: [docs/design_document.pdf](docs/design_document.pdf)\
 \# Video: [https://www.youtube.com/watch?v=YFa4BTQpu7U](https://www.youtube.com/watch?v=YFa4BTQpu7U)\
-\# Slides: added after upload
+\# Slides: [Google Slides](https://docs.google.com/presentation/d/1GkdRYpRmGIRh9DSRDWldRN4j6XZGo7R_d9KolcGOJHA/edit?usp=sharing)
 
 ## Author
 
