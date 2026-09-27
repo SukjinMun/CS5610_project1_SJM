@@ -67,7 +67,7 @@ CS5610_project1_SJM/
 ├── js/bragg.js         Bragg peak explorer
 ├── js/ising.js         Ising model
 ├── images/             Avatar, favicon, screenshot, thumbnail
-├── docs/               Design document PDF
+├── docs/               Design document PDF, GenAI prompts
 ├── eslint.config.js    Class ESLint config
 ├── package.json        Scripts and dependencies
 └── LICENSE             MIT License
@@ -77,7 +77,7 @@ CS5610_project1_SJM/
 
 Model: Claude Opus 5.5 (claude-opus-5-5) by Anthropic, through Claude Code 2.1.283, September 2026.
 
-AI made the Lab page (lab.html, js/ising.js, and the Lab part of css/style.css) after I finished my other two pages. I gave it my pages as the style reference and agreed on a plan before any code. My prompts, summarized:
+AI made the Lab page (lab.html, js/ising.js, and the Lab part of css/style.css) after I finished my other two pages. I gave it my pages as the style reference and agreed on a plan before any code. My prompts, summarized here and listed in full in [docs/genai_prompts.md](docs/genai_prompts.md):
 
 1. Help me plan an interactive physics page before changing any files.
 2. Plan a 2D Ising model page with a temperature slider, play, reset, and grid size.
