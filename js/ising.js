@@ -152,7 +152,7 @@ function listHistory() {
 
 // Status
 function announce() {
-  status.textContent = `${running ? "Running" : "Paused"} at temperature ${tempValue.textContent} on a ${n} by ${n} lattice: magnetization ${magnetization.textContent}, energy per spin ${energy.textContent}.`;
+  status.textContent = `${running ? "Running" : "Paused"} at temperature ${tempValue.textContent} on a ${n} by ${n} grid: magnetization ${magnetization.textContent}, energy per spin ${energy.textContent}.`;
   spoken = performance.now();
   listHistory();
 }

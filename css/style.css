@@ -21,8 +21,18 @@
   max-width: 70ch;
 }
 
+main ul {
+  list-style-type: "# ";
+}
+
 .navbar {
   --bs-navbar-active-color: var(--accent);
+}
+
+.navbar .nav-link:focus-visible {
+  outline: 0.125rem solid var(--accent);
+  outline-offset: 0.125rem;
+  box-shadow: none;
 }
 
 /* Experience */

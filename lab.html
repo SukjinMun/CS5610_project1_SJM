@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="An interactive 2D Ising model of a magnet by Suk Jin Mun."
+      content="An interactive model of a magnet by Suk Jin Mun."
     />
     <meta name="author" content="Suk Jin Mun" />
     <title>Lab | Suk Jin Mun</title>
@@ -67,10 +67,7 @@
       <section class="py-5">
         <div class="container">
           <h1 class="display-5">Lab</h1>
-          <p class="lead prose">
-            This page runs the 2D Ising model, a lattice of magnetic spins,
-            close to the spin models and magnetic structures in my research.
-          </p>
+          <p class="lead prose">A small magnet simulation you can play with.</p>
         </div>
       </section>
 
@@ -78,26 +75,12 @@
       <section id="ising" class="band py-5">
         <div class="container">
           <h2 class="mb-3">2D Ising model</h2>
-          <div class="prose mb-4">
-            <p>
-              The Ising model is the simplest picture of a magnet. Each square
-              in the grid is a tiny magnet, called a spin, that points either up
-              or down.
-            </p>
-            <p>
-              Neighboring spins prefer to point the same way, while heat flips
-              them at random. At low temperature the spins line up into large
-              patches of one color, and at high temperature they stay a random
-              mix. The change happens near a temperature of 2.27.
-            </p>
-            <p>
-              The simulation uses the Metropolis algorithm. It picks spins at
-              random and flips each one if that does not raise the energy, and
-              otherwise with a chance that grows with temperature. Magnetization
-              is the average spin, from -1 to 1. Energy per spin is -2 when
-              every neighbor agrees and near 0 for a random grid.
-            </p>
-          </div>
+          <p class="prose mb-4">
+            Each square is a tiny magnet that points up or down. Raise the
+            temperature and watch the ordered patches break into noise. Teal
+            squares point up and white squares point down. Magnetization runs
+            from −1 (all down) to +1 (all up).
+          </p>
           <div class="card">
             <div class="card-body">
               <div class="row g-4">
@@ -141,17 +124,12 @@
                       class="col-12 order-md-last prose small mb-0"
                       id="ising-tc-note"
                     >
-                      Temperature is shown as k<sub>B</sub>T/J, and energy per
-                      spin is measured in units of J, with ferromagnetic
-                      coupling and no external field. For an infinite square
-                      lattice at equilibrium, spontaneous magnetization vanishes
-                      at T<sub>c</sub> ≈ 2.269. These finite lattices fluctuate
-                      and need time to equilibrate, so the displayed
-                      magnetization need not be zero there.
+                      T<sub>c</sub> ≈ 2.269 marks where order breaks down on a
+                      very large grid.
                     </p>
                     <div class="col-md-4">
                       <label class="form-label" for="ising-size"
-                        >Lattice size</label
+                        >Grid size</label
                       >
                       <select class="form-select ising-size" id="ising-size">
                         <option value="32">32 × 32</option>
@@ -216,7 +194,7 @@
         class="container d-flex flex-column flex-sm-row justify-content-between gap-2"
       >
         <p class="mb-0">© <span class="footer-year">2026</span> Suk Jin Mun</p>
-        <ul class="list-inline mb-0">
+        <ul class="list-inline mb-0" role="list">
           <li class="list-inline-item">
             <a href="mailto:mun.s@northeastern.edu">Email</a>
           </li>
