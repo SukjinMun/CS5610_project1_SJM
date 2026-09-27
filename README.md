@@ -48,7 +48,7 @@ The site is static and has no build step.
    cd CS5610_project1_SJM
    ```
 
-2. `npm install` installs Bootstrap 5.3.8 and the dev tools (ESLint, Prettier, http-server).
+2. `npm install` installs Bootstrap 5.3.8 and the dev tools (ESLint, Prettier, http-server). The pages load Bootstrap's ES module build from jsDelivr, and the import map in each page head points its one import, @popperjs/core 2.11.8, to the same CDN.
 3. `npm start` serves the site at http://localhost:8080.
 4. `npm run lint` runs ESLint with the class config.
 5. `npm run format` formats the files with Prettier.
@@ -75,18 +75,18 @@ CS5610_project1_SJM/
 
 ## GenAI use
 
-Model: Claude Opus 5.5 (claude-opus-5-5) by Anthropic, through Claude Code, September 2026.
+Model: Claude Opus 5.5 (claude-opus-5-5) by Anthropic, through Claude Code 2.1.283, September 2026.
 
-AI made the Lab page (lab.html, js/ising.js, and the Lab part of css/style.css) after I finished my other two pages. I gave it my pages as the style reference and agreed on a plan before any code. My prompts, shortened:
+AI made the Lab page (lab.html, js/ising.js, and the Lab part of css/style.css) after I finished my other two pages. I gave it my pages as the style reference and agreed on a plan before any code. My prompts, summarized:
 
-1. You are a full stack developer with 20 years of experience. Plan first, change no files, and ask me questions.
-2. Plan a 2D Ising model page with a temperature slider, play, reset, and grid size, with no libraries.
-3. Write lab.html with my shared header and footer.
+1. Help me plan an interactive physics page before changing any files.
+2. Plan a 2D Ising model page with a temperature slider, play, reset, and grid size.
+3. Build lab.html with my shared header and footer.
 4. Write the simulation in js/ising.js.
 5. Connect the controls and the readouts.
-6. Test it in Chrome and fix what is broken.
+6. Test the page in Chrome and fix any errors.
 7. Add a Tc mark and a small magnetization plot.
-8. Match my other pages and make it work on a phone.
+8. Match the style of my other pages and make it work on a phone.
 9. Add canvas labels and keyboard focus.
 10. Fix the ESLint and W3C errors.
 
