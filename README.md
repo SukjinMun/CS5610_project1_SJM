@@ -77,39 +77,29 @@ CS5610_project1_SJM/
 
 Model: Claude Opus 5.5 (claude-opus-5-5) by Anthropic, through Claude Code 2.1.283, September 2026.
 
-AI made the Lab page (lab.html, js/ising.js, and the Lab part of css/style.css) after I finished my other two pages. It took ten iterations, listed below with my prompt and what changed at each one. The full prompts are in [docs/genai_prompts.md](docs/genai_prompts.md).
+AI made the Lab page (lab.html, js/ising.js, and the Lab part of css/style.css) after I finished my other two pages. It took ten iterations, each listed with my prompt and what changed. The full prompts are in [docs/genai_prompts.md](docs/genai_prompts.md).
 
-**Iteration 1: choose the idea.** Help me plan an interactive physics page before changing any files.
-_Result:_ it read my two pages, compared a 2D Ising model, a crystal lattice viewer, and a random walk, and asked me five questions about the audience, controls, and readouts. No files changed.
+**Iteration 1.** I asked for help planning an interactive physics page before any file changed. It compared a 2D Ising model, a crystal lattice viewer, and a random walk, and asked me five questions.
 
-**Iteration 2: plan.** Plan a 2D Ising model page with a temperature slider, play, reset, and grid size.
-_Result:_ a six phase plan (page shell, explanation and controls, simulation, drawing, styles, final checks) with a check for each phase. No files changed.
+**Iteration 2.** I chose the Ising model with a temperature slider, play, reset, and grid size, and asked for a plan. It wrote six phases with a check for each.
 
-**Iteration 3: the page appears.** Build lab.html with my shared header and footer.
-_Result:_ lab.html with my navbar and footer, a three paragraph plain explanation, and a card with the temperature slider, the size select, Play and Reset buttons, and a canvas area that was still blank.
+**Iteration 3.** I asked it to build lab.html with my shared header and footer. The page appeared with a short explanation, the controls, and a blank canvas.
 
-**Iteration 4: the simulation runs.** Write the simulation in js/ising.js.
-_Result:_ the canvas came alive. The spins sit in a typed array with wrap-around edges, four Metropolis sweeps run per frame, and up spins are drawn teal and down spins white. At low temperature the grid settled into one color, and at high temperature it stayed a random mix.
+**Iteration 4.** I asked for the simulation in js/ising.js. The canvas came alive, ordering into one color at low temperature and staying random at high temperature.
 
-**Iteration 5: wire the controls.** Connect the controls and the readouts.
-_Result:_ the slider moved to steps of 0.05 and shows its value, and a new size restarts the grid while the model keeps running.
+**Iteration 5.** I asked it to connect the controls and the readouts. The slider moved to steps of 0.05, and a new grid size restarts the model without stopping it.
 
-**Iteration 6: test in Chrome.** Test the page in Chrome and fix any errors.
-_Result:_ every control worked with an empty console, so no files changed.
+**Iteration 6.** I asked it to test the page in Chrome. Every control worked with no console errors, so no file changed.
 
-**Iteration 7: Tc mark and plot.** Add a Tc mark and a small magnetization plot.
-_Result:_ a small Tc tick under the slider at 2.269 with one sentence on what happens there, and a second canvas that plots the magnetization over the last 200 frames.
+**Iteration 7.** I asked for a Tc mark and a magnetization plot. A Tc tick with one sentence appeared under the slider, and a second canvas plots the last 200 frames.
 
-**Iteration 8: my style on every screen.** Match the style of my other pages and make it work on a phone.
-_Result:_ Play turned solid teal and Reset a teal outline, the Tc sentence wraps at my text width, and on a phone the canvas comes first with the controls stacked below it.
+**Iteration 8.** I asked it to match my other pages and fit a phone. The buttons turned teal, and on a phone the canvas comes first with the controls below.
 
-**Iteration 9: accessibility.** Add canvas labels and keyboard focus.
-_Result:_ a hidden status line that screen readers announce on Play, Pause, Reset, and size changes, and a teal outline on whichever control has keyboard focus.
+**Iteration 9.** I asked for canvas labels and keyboard focus. Screen readers now hear a status line, and the focused control shows a teal outline.
 
-**Iteration 10: final checks.** Fix the ESLint and W3C errors.
-_Result:_ ESLint, Prettier, and W3C already passed, and it explained the Metropolis update to me step by step.
+**Iteration 10.** I asked it to fix the ESLint and W3C errors. All checks already passed, and it explained the Metropolis update to me step by step.
 
-The page took shape at iterations 3 and 4, gained the Tc mark and the plot at iteration 7, and took on my style and the phone layout at iteration 8.
+The page changed most at iterations 3, 4, 7, and 8.
 
 The same assistant also helped build and review my other two pages, the design document, and this README, and it later shortened the Lab page text and tidied the Lab code.
 
