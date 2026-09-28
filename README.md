@@ -35,7 +35,7 @@ All pages share the navbar, the footer, and css/style.css. js/main.js marks the 
 
 ## Original component
 
-The Bragg peak explorer on research.html shows the angles at which a crystal scatters light into peaks. I wrote it from scratch in js/bragg.js. You pick a crystal type, a size, and a light source, and it draws the peaks on a canvas and lists them in a table.
+The Bragg peak explorer on research.html shows the angles at which a crystal scatters light into peaks. I wrote it from scratch in js/bragg.js. You pick a crystal type, a size, and a light source, and it draws the peaks on a canvas and lists them in a table. For each set of Miller indices h, k, l, the script keeps the ones the crystal type allows (all for simple cubic, h + k + l even for body centered, all odd or all even for face centered). It then finds the plane spacing d = a / √(h² + k² + l²) and uses Bragg's law, λ = 2d sin θ, to place each peak at 2θ between 10° and 90°. Planes with the same h² + k² + l² give one peak, so the table lists them together.
 
 ## Instructions to build
 
