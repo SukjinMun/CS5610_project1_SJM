@@ -79,18 +79,37 @@ Model: Claude Opus 5.5 (claude-opus-5-5) by Anthropic, through Claude Code 2.1.2
 
 AI made the Lab page (lab.html, js/ising.js, and the Lab part of css/style.css) after I finished my other two pages. It took ten iterations, listed below with my prompt and what changed at each one. The full prompts are in [docs/genai_prompts.md](docs/genai_prompts.md).
 
-1. Help me plan an interactive physics page before changing any files. It read my pages, compared three ideas, and asked me five questions, with no files changed.
-2. Plan a 2D Ising model page with a temperature slider, play, reset, and grid size. It wrote a six phase plan with a check for each phase, with no files changed.
-3. Build lab.html with my shared header and footer. The page first appeared, with the navbar, footer, explanation, controls, and an empty canvas area.
-4. Write the simulation in js/ising.js. The Metropolis simulation first ran on the canvas, and Play, Reset, and the grid size worked.
-5. Connect the controls and the readouts. The temperature slider moved to steps of 0.05 and shows its value, and the readouts update live.
-6. Test the page in Chrome and fix any errors. Every control worked with no console errors, so no files changed.
-7. Add a Tc mark and a small magnetization plot. The Tc tick and its sentence appeared under the slider, with a live plot of the last 200 frames.
-8. Match the style of my other pages and make it work on a phone. Play and Reset turned teal, the Tc text got narrower, and the phone layout puts the canvas first.
-9. Add canvas labels and keyboard focus. A screen reader status line and a teal keyboard focus outline were added.
-10. Fix the ESLint and W3C errors. All checks already passed, and it explained the Metropolis update to me step by step.
+**Iteration 1: choose the idea.** Help me plan an interactive physics page before changing any files.
+_Result:_ it read my two pages, compared a 2D Ising model, a crystal lattice viewer, and a random walk, and asked me five questions about the audience, controls, and readouts. No files changed.
 
-The biggest changes came at iterations 3 and 4, when the page and the simulation first appeared, and at iterations 7 and 8, when the Tc mark, the plot, and the phone layout were added.
+**Iteration 2: plan.** Plan a 2D Ising model page with a temperature slider, play, reset, and grid size.
+_Result:_ a six phase plan (page shell, explanation and controls, simulation, drawing, styles, final checks) with a check for each phase. No files changed.
+
+**Iteration 3: the page appears.** Build lab.html with my shared header and footer.
+_Result:_ lab.html with my navbar and footer, a three paragraph plain explanation, and a card with the temperature slider, the size select, Play and Reset buttons, and a canvas area that was still blank.
+
+**Iteration 4: the simulation runs.** Write the simulation in js/ising.js.
+_Result:_ the canvas came alive. The spins sit in a typed array with wrap-around edges, four Metropolis sweeps run per frame, and up spins are drawn teal and down spins white. At low temperature the grid settled into one color, and at high temperature it stayed a random mix.
+
+**Iteration 5: wire the controls.** Connect the controls and the readouts.
+_Result:_ the slider moved to steps of 0.05 and shows its value, and a new size restarts the grid while the model keeps running.
+
+**Iteration 6: test in Chrome.** Test the page in Chrome and fix any errors.
+_Result:_ every control worked with an empty console, so no files changed.
+
+**Iteration 7: Tc mark and plot.** Add a Tc mark and a small magnetization plot.
+_Result:_ a small Tc tick under the slider at 2.269 with one sentence on what happens there, and a second canvas that plots the magnetization over the last 200 frames.
+
+**Iteration 8: my style on every screen.** Match the style of my other pages and make it work on a phone.
+_Result:_ Play turned solid teal and Reset a teal outline, the Tc sentence wraps at my text width, and on a phone the canvas comes first with the controls stacked below it.
+
+**Iteration 9: accessibility.** Add canvas labels and keyboard focus.
+_Result:_ a hidden status line that screen readers announce on Play, Pause, Reset, and size changes, and a teal outline on whichever control has keyboard focus.
+
+**Iteration 10: final checks.** Fix the ESLint and W3C errors.
+_Result:_ ESLint, Prettier, and W3C already passed, and it explained the Metropolis update to me step by step.
+
+The page took shape at iterations 3 and 4, gained the Tc mark and the plot at iteration 7, and took on my style and the phone layout at iteration 8.
 
 The same assistant also helped build and review my other two pages, the design document, and this README, and it later shortened the Lab page text and tidied the Lab code.
 
