@@ -23,7 +23,7 @@ I am an M.S. Data Science student at Northeastern University, and I use data sci
 
 ## Screenshot
 
-![Home page at 1280 by 800 pixels](images/screenshot.png)
+![Home page at 1280 pixels wide, with my avatar, name, introduction, two buttons, and the three highlight cards for research, RAPID, and publications](images/screenshot.png)
 
 ## Pages
 
